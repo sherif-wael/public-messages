@@ -31,7 +31,7 @@ app.use("/api/profile", require("./routes/api/profile"))
 app.use("/api/message", require("./routes/api/message"))
 
 //serving static files
-app.use(express.static("./client/build"))
+app.use(express.static("client/build"))
 
 app.use("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
