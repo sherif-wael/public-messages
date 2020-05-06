@@ -16,7 +16,7 @@ const createUnqiueUsername = require("../utils/createUniqueUsername")
 const opts = {
     clientID: "514043582838295",
     clientSecret: "7c87c9495b0f5be72bc138f375064d1a",
-    callbackURL: `http://localhost:5000/api/auth/facebook/callback`,
+    callbackURL: `http://public-messages.herokuapp.com/api/auth/facebook/callback`,
     profileFields: ["emails", "displayName", "id", "photos"]
 }
 
