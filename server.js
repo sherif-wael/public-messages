@@ -34,7 +34,7 @@ app.use("/api/message", require("./routes/api/message"))
 app.use(express.static("client/build"))
 
 app.use("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile("index.html");
     // if(process.env.NODE_ENV === "production"){
     //     res.sendFile(path.join(__dirname, "./clinet/build/index.html"))
     // }else{
