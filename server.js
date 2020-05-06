@@ -34,11 +34,12 @@ app.use("/api/message", require("./routes/api/message"))
 app.use(express.static("./client/build"))
 
 app.use("*", (req, res) => {
-    if(process.env.NODE_ENV === "production"){
-        res.sendFile(path.join(__dirname, "./clinet/build/index.html"))
-    }else{
-        res.sendFile(path.join(__dirname, "./client/public/index.html"))
-    }
+    res.sendFile(path.join(__dirname, "./clinet/build/index.html"))
+    // if(process.env.NODE_ENV === "production"){
+    //     res.sendFile(path.join(__dirname, "./clinet/build/index.html"))
+    // }else{
+    //     res.sendFile(path.join(__dirname, "./client/public/index.html"))
+    // }
 })
 
 const PORT = process.env.PORT || 5000;
