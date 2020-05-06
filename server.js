@@ -31,7 +31,7 @@ app.use("/api/profile", require("./routes/api/profile"))
 app.use("/api/message", require("./routes/api/message"))
 
 //serving static files
-app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./client/public")));
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "./client/public/index.html"))
