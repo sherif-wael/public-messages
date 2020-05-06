@@ -63,7 +63,7 @@ const Login = ({login, history, setLoginForm}) => {
                 <Button variant="contained" onClick={() => login(loginData, history)} className={classes.button}>Submit</Button>
             </form>
             <Divider />
-            <Button color="primary" variant="contained"  onClick={() => window.location = "https://public-messages.com/api/auth/facebook"} className={classes.fbLink}><FacebookIcon className={classes.fbIcon} /> Login With Facebook</Button>
+            <Button color="primary" variant="contained"  onClick={() => window.location = "https://public-messages.herokuapp.com/api/auth/facebook"} className={classes.fbLink}><FacebookIcon className={classes.fbIcon} /> Login With Facebook</Button>
             <Typography variant="subtitle2" component="p" className={classes.footer}>Don't have an account? 
                        <span className={classes.toggler} onClick={() => setLoginForm(false)}>create account</span></Typography>
         </div>
