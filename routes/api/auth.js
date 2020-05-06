@@ -13,7 +13,7 @@ router.get("/facebook/callback", passport.authenticate("facebook", {session: fal
           (req, res) => {
               let payload = {id: req.user._id, username: req.user.username};
               let token = jwt.sign(payload, keys.JWT_SECRET, {expiresIn: 360000000});
-              res.redirect(`http://localhost:3000/fb/Bearer ${token}`)
+              res.redirect(`https://public-messages.herokuapp.com/fb/Bearer ${token}`)
             //   res.send(`
             //    <script>
             //      localStorage.setItem("jwt","Bearer ${token}");
