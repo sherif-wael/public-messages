@@ -34,7 +34,8 @@ app.use("/api/message", require("./routes/api/message"))
 app.use(express.static(path.join(__dirname, "./client/public")));
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./client/public/index.js"))
+    res.sendFile(path.join(__dirname, "./index.html"))
+    // res.sendFile(path.join(__dirname, "./client/public/index.js"))
     //ashdkasd
 })
 
