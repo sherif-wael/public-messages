@@ -34,6 +34,7 @@ app.use("/api/message", require("./routes/api/message"))
 app.use(express.static("./client/public"))
 
 app.use("*", (req, res) => {
+    return res.send("<h1>asdhkajsdh</h1>")
     if(process.env.NODE_ENV === "production"){
         res.sendFile(path.join(__dirname, "./clinet/build/index.html"))
     }else{
