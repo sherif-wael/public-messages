@@ -106,7 +106,7 @@ class EditProfile extends React.Component{
             username: username || "",
             name: name || ""
         }
-        this.props.getCurrentProfile(data);
+        this.props.editCurrentProfile(data);
     }
     render(){   
         let {loading} = this.props;
