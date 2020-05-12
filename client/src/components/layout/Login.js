@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         width: "400px",
         boxShadow: theme.shadows[2],
-        padding: "30px 50px",
+        padding: "30px 10px",
         backgroundColor: "#ffffff"
     },
     input: {
@@ -55,7 +55,6 @@ const Login = ({login, history, setLoginForm}) => {
     const [loginData, setLoginData] = useState({email: "", password: ""});
     return (
         <div className={classes.root}>
-            {/* <a href="http://localhost:3000/api/auth/facebook">click</a> */}
             <Typography variant="h6" component="h6">Login Form</Typography>
             <form className={classes.form}>
                 <TextField  onChange={e => setLoginData({...loginData, email: e.target.value})} label="Enter Email" className={classes.input} type="text"/>

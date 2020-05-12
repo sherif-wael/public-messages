@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
     root: {
         width: "400px",
         boxShadow: theme.shadows[2],
-        padding: "30px 50px",
+        padding: "30px 10px",
         backgroundColor: "#ffffff"
     },
     button: {

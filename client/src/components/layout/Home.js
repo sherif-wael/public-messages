@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 
 const useStyles = makeStyles(theme => ({
     root: {
-        padding: "50px 40px",
+        padding: "50px 10px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
