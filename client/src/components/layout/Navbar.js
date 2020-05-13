@@ -19,7 +19,10 @@ import SearchBar from "./SearchBar";
 const useStyles = makeStyles(theme => ({
     root: {
         // justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
+        [theme.breakpoints.down("xs")]:{
+            display: "block"
+        }
     },
     navbarLink: {
         color: "white",
@@ -37,12 +40,23 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("sm")]: {
             fontSize: 16,
             fontWight: 500
+        },
+        [theme.breakpoints.down("xs")]: {
+            paddingTop: theme.spacing(1)
+        }
+    },
+    flex: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        [theme.breakpoints.down("xs")]: {
+            paddingTop: theme.spacing(1),
+            paddingBottom: theme.spacing(1)
         }
     }
 }))
 
 const Navbar = ({isAuthenticated, history, logout}) => {
-    console.log(window.innerWidth)
     const classes = useStyles();
     let [anchorEl, setAnchorEl] = useState(null);
     const handleClick = e => setAnchorEl(e.target);
@@ -55,12 +69,14 @@ const Navbar = ({isAuthenticated, history, logout}) => {
             <AppBar position="static">
                 <Toolbar className={classes.root}>
                     <Typography variant="body1" component="h6" className={classes.logo} >PUBLIC MESSAGES</Typography>
-                    <SearchBar />
-                    {
-                    isAuthenticated ?
-                    <IconButton onClick={handleClick} color="inherit"><AccountCircle /></IconButton> :
-                    <IconButton onClick={handleClick} color="inherit"><MoreVertIcon /></IconButton>
-                }
+                    <div className={classes.flex}>
+                        <SearchBar />
+                        {
+                        isAuthenticated ?
+                        <IconButton onClick={handleClick} color="inherit"><AccountCircle /></IconButton> :
+                        <IconButton onClick={handleClick} color="inherit"><MoreVertIcon /></IconButton>
+                        }
+                    </div>
                 </Toolbar>
             </AppBar>
             {

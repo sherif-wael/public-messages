@@ -16,14 +16,17 @@ const useStyles = makeStyles(theme => ({
         maxWidth: 1600,
         margin: "0 auto",
         padding: "0 200px",
-        [theme.breakpoints.down("sx")]:{
+        [theme.breakpoints.down("lg")]:{
+            padding: "0 150px"
+        },
+        [theme.breakpoints.down("md")]:{
+            padding: "0 60px"
+        },
+        [theme.breakpoints.down("sm")]: {
             padding: "0 25px"
         },
-        [theme.breakpoints.down("sm")]:{
-            padding: "0 50px"
-        },
-        [theme.breakpoints.down("mg")]: {
-            padding: "0 100px"
+        [theme.breakpoints.down("xs")]: {
+            padding: "0 10px"
         }
     },
     loading: {
@@ -33,12 +36,14 @@ const useStyles = makeStyles(theme => ({
         transform: "translate(-50%, -50%)"
     },
     wrapper: {
-        padding: "20px 0"
+        padding: "20px 0",
     },
     profile: {
-        display: "flex",
-        justifyContent: "center",
-        margin: "40px 0"
+        margin: "40px 0",
+        [theme.breakpoints.up("sm")]: {
+            display: "flex",
+            justifyContent: "center",
+        }
     },
     avatar: {
         margin: "0 20px",
@@ -46,7 +51,16 @@ const useStyles = makeStyles(theme => ({
         height: 100,
         borderRadius: 0,
         color: theme.palette.getContrastText(theme.palette.secondary.main),
-        backgroundColor: theme.palette.secondary.main
+        backgroundColor: theme.palette.secondary.main,
+        [theme.breakpoints.down("sm")]:{
+            margin: "0 auto",
+            display: "block"
+        }
+    },
+    center: {
+        [theme.breakpoints.down("sm")]: {
+            textAlign: "center"
+        }
     }
 }))
 
@@ -68,8 +82,8 @@ const CurrentUserProfile = ({getCurrentProfile, profile, loading}) => {
                             {profile.photo ? <Avatar alt="profile image" src={profile.photo} className={classes.avatar}/> : <Avatar color="secondary" className={classes.avatar}>{profile.name[0]}</Avatar>}
                           </div>
                           <div>
-                              <Typography variant="h5" component="h5">{profile.name}</Typography>
-                              <Typography variant="body1" component="p" color="textSecondary">username: {profile.username}</Typography>
+                              <Typography variant="h5" component="h5" className={classes.center}>{profile.name}</Typography>
+                              <Typography variant="body1" component="p" color="textSecondary" className={classes.center}>username: {profile.username}</Typography>
                           </div>
                       </div>
                       <Paper square className={classes.tabs}>

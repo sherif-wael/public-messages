@@ -11,15 +11,18 @@ const useStyles = makeStyles(theme => ({
     root: {
         maxWidth: 1600,
         margin: "0 auto",
-        padding: "50px 200px",
-        [theme.breakpoints.down("xs")]: {
-            padding: "30px 20px"
+        padding: "0 200px",
+        [theme.breakpoints.down("lg")]:{
+            padding: "0 150px"
+        },
+        [theme.breakpoints.down("md")]:{
+            padding: "0 60px"
         },
         [theme.breakpoints.down("sm")]: {
-            padding: "30px 30px"
+            padding: "0 25px"
         },
-        [theme.breakpoints.down("md")]: {
-            padding: "50px 40px"
+        [theme.breakpoints.down("xs")]: {
+            padding: "0 10px"
         }
     },
     textarea: {
@@ -49,7 +52,8 @@ const useStyles = makeStyles(theme => ({
     paper: {
         boxShadow: theme.shadows[2],
         padding: theme.spacing(1),
-        margin: theme.spacing(2)
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(2)
     },
     button: {
         color: theme.palette.getContrastText(red[500]),
@@ -62,14 +66,14 @@ const useStyles = makeStyles(theme => ({
 
 const CreateMessage = ({createMessage}) => {
     const classes = useStyles();
-    const [messageData, setMessageData] = useState({body: "", reciever: ""});
+    const [messageData, setMessageData] = useState({body: "", reciever: "all"});
     
     return (
         <div className={classes.root}>
          <Paper className={classes.paper}>
             <div className={classes.flex}>
                 <p className={classes.label}>To:</p>
-                <input type="text" defaultValue="all"
+                <input type="text" value={messageData.reciever}
                 onChange={e => setMessageData({...messageData, reciever: e.target.value})} 
                 className={classes.input} />
             </div>
